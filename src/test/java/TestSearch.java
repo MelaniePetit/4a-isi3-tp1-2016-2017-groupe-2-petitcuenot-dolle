@@ -1,4 +1,4 @@
-import java.util.Iterator;
+import java.util.*;
 
 import graph.Arc;
 import graph.Graph;
@@ -70,4 +70,6 @@ public class TestSearch {
 		while (iterugDFS.hasNext())
 			System.out.println(iterugDFS.next());
 	}
+
+
 }

@@ -7,6 +7,17 @@ package graph;
  */
 
 public class Node {
+
+	private boolean marked;
+
+	public void setMarked(boolean marked) {
+		this.marked = marked;
+	}
+
+	public boolean isMarked() {
+		return marked;
+	}
+
 	/**
 	 * etiquette du noeud
 	 */

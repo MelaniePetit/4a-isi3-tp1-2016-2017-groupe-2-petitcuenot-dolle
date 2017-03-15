@@ -1,6 +1,5 @@
 package graph;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +13,7 @@ public interface IGraph {
 	 * 
 	 * @return tous les noeuds du graph
 	 */
-	public List<Node> getAllNodes();
+	public Set<Node> getAllNodes();
 	/**
 	 * 
 	 * @return le nombre de noeuds du graph

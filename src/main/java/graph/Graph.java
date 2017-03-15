@@ -1,11 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
+import java.util.*;
 
 
 public class Graph implements IDirectedGraph {
@@ -49,16 +44,12 @@ public class Graph implements IDirectedGraph {
 	
 	}
 	
-	public List<Node> getAllNodes(){
-		//A COMPLETER
-		
-		return null;
+	public Set<Node> getAllNodes(){
+		return adjacence.keySet();
 	}
 	
 	public int getNbNodes(){
-		//A COMPLETER
-		
-		return 0;
+		return getAllNodes().size();
 	}
 	
 	/**
@@ -74,19 +65,33 @@ public class Graph implements IDirectedGraph {
 	 * renvoie tous les noeuds qui sont destination d'un arc dont la source est _n
 	 */
 	public List<Node> getAdjNodes(Node _n){
-		//A COMPLETER
-		return null;
+		List<Arc> adjArcs = adjacence.get(_n);
+		List<Node> adjNodes = new ArrayList<Node>();
+		for (Arc arc : adjArcs)
+		{
+			if (_n == arc.getSource())
+				adjNodes.add(arc.getDestination());
+		}
+		return adjNodes;
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		String s="Graph \n";
-		//A COMPLETER
-		
-		
-		return s;
+		StringBuilder stringBuilder = new StringBuilder();
+
+		stringBuilder.append("Graph\n");
+		for (Node node : getAllNodes())
+		{
+			stringBuilder.append("[noeud=" + node + " : [");
+			if (!getAdjNodes(node).isEmpty())
+					stringBuilder.append(node.getID() + "=>");
+			for(Node adjNode : getAdjNodes(node))
+			{
+				stringBuilder.append(adjNode.getID() +"(" + hasArc(node,adjNode) + ")]");
+			}
+			stringBuilder.append("\n");
+		}
+		return stringBuilder.toString();
 	}
 
 
