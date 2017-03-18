@@ -1,5 +1,8 @@
 package graph;
 
+import Utils.BFSIterator;
+import Utils.DFSIterator;
+
 import java.util.*;
 
 
@@ -76,6 +79,16 @@ public class Graph implements IDirectedGraph {
 	}
 
 	@Override
+	public Iterator<Node> creerBFSIterator(Node n) {
+		return new BFSIterator(this,n);
+	}
+
+	@Override
+	public Iterator<Node> creerDFSIterator(Node n) {
+		return new DFSIterator(this,n);
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 
@@ -84,10 +97,10 @@ public class Graph implements IDirectedGraph {
 		{
 			stringBuilder.append("[noeud=" + node + " : [");
 			if (!getAdjNodes(node).isEmpty())
-					stringBuilder.append(node.getID() + "=>");
+					stringBuilder.append(node.getLabel() + "=>");
 			for(Node adjNode : getAdjNodes(node))
 			{
-				stringBuilder.append(adjNode.getID() +"(" + hasArc(node,adjNode) + ")]");
+				stringBuilder.append(adjNode.getLabel() +"(" + hasArc(node,adjNode) + ")]");
 			}
 			stringBuilder.append("\n");
 		}

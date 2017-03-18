@@ -1,54 +1,53 @@
 package Utils;
 
-import graph.Graph;
+import graph.IGraph;
 import graph.Node;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public abstract class GraphIterator implements Iterator {
+public abstract class GraphIterator implements Iterator<Node> {
 
-    Graph graph;
+    IGraph graph;
     Node node;
-    List<Node> file;
-    List<Node> marked = new ArrayList<Node>();
+    List<Node> file = new LinkedList<>();
+    Stack<Node> stack = new Stack<>();
+    List<Node> marked = new ArrayList<>();
 
-    public GraphIterator(Graph graph, Node node, List<Node> file) {
-        this.graph = graph;
-        this.node = node;
-        this.file = new LinkedList<Node>();
-    }
-
+    @Override
     public boolean hasNext() {
-        return false;
+        return !file.isEmpty();
     }
 
-    public Node next() {
-        return file.iterator().next();
+    @Override
+    public Node next(){
+        if(hasNext()) {
+            remove();
+            if (!marked.contains(node))
+                marked.add(node);
+            List<Node> adjs = graph.getAdjNodes(node).stream().filter(node -> !marked.contains(node)).collect(Collectors.toList());
+
+            for (Node node : adjs)
+            {
+                if (!file.contains(node))
+                    file.add(node);
+            }
+
+            Node previousNode = node;
+            node = getNextNode();
+
+            return previousNode;
+        }
+        else {
+            throw new NoSuchElementException();
+        }
     }
 
-    public void remove(Node node) {
+    @Override
+    public void remove() {
         file.remove(node);
     }
 
-    private void parcoursLargeur(Node node)
-    {
-        file.add(node); //add and mark
-        marked.add(node);
-        do {
-            node = next();
-            System.out.println(node);
-            for(graph.Node neighbours : graph.getAdjNodes(node))
-            {
-                if (!marked.contains(neighbours))
-                {
-                    file.add(neighbours);
-                    marked.add(neighbours);
-                }
-            }
-            remove(node);
-        }while (!file.isEmpty());
-    }
+    public abstract Node getNextNode();
+
 }

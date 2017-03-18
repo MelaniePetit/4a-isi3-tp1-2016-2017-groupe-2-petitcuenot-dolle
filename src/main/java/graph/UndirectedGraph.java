@@ -1,5 +1,9 @@
 package graph;
 
+import Utils.BFSIterator;
+import Utils.DFSIterator;
+
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -10,8 +14,7 @@ public class UndirectedGraph implements IUndirectedGraph{
 
     private Graph graph = new Graph();
 
-    public UndirectedGraph(Graph graph) {
-        this.graph = graph;
+    public UndirectedGraph() {
     }
 
     public void addNode(Node _node) {
@@ -30,6 +33,16 @@ public class UndirectedGraph implements IUndirectedGraph{
         return graph.getAdjNodes(_n);
     }
 
+    @Override
+    public Iterator<Node> creerBFSIterator(Node n) {
+        return new BFSIterator(this, n);
+    }
+
+    @Override
+    public Iterator<Node> creerDFSIterator(Node n) {
+        return new DFSIterator(this,n);
+    }
+
     public void addEdge(Node _node1, Node _node2) {
         Arc arcA = new Arc(_node1,_node2,null);
         Arc arcR = new Arc(_node2,_node1,null);
@@ -40,4 +53,5 @@ public class UndirectedGraph implements IUndirectedGraph{
     public boolean hasEdge(Node _node1, Node _node2) {
         return graph.hasArc(_node1,_node2);
     }
+
 }
