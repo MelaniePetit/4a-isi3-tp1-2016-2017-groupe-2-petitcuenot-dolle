@@ -38,7 +38,8 @@ L’affichage pourra alors **ressembler** à ce qui suit :
 Graph
 [noeud=3 : [3 ==> 2(null)]
 [noeud=A : []
-[noeud=2 : [2 ==> 1(2), 2 ==> 3(null)] [noeud=1 : [1 ==> 2(0.1), 1 ==> 3(null)]
+[noeud=2 : [2 ==> 1(2), 2 ==> 3(null)] 
+[noeud=1 : [1 ==> 2(0.1), 1 ==> 3(null)]
 true false
 [2]
 ```
