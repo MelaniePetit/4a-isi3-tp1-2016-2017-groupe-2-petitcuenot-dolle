@@ -1,6 +1,6 @@
-**Nom/Prénom Etudiant 1 : DOLLE Jérémy**
+**DOLLE Jérémy**
 
-**Nom/Prénom Etudiant 2 : PETITCUENOT Mélanie**
+**PETITCUENOT Mélanie**
 
 # Rapport TP1
 
@@ -24,8 +24,16 @@ pour implementer la plus part des méthodes. Seule la méthode _addEdge(Node n1,
 _addEdge(Node n1, Node n2)_ crée un arc non-orienté entre les deux noeuds, pour cela un arc n1 -> n2 est ajouté à la liste d'arc
 puis son inverse (n2 => n1).
 
+
+![DesignPatter2](./images/designPattern2.png)
+
 ## Question 3
-*Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+
+Le parcours en largeur a été implémenté dans la classe _GraphIterator_. 
+
+![DesignPatter2](./images/designPattern3.png)
+
 
 ## Question 4
-*Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+
+![DesignPatter2](./images/designPattern4.png)
