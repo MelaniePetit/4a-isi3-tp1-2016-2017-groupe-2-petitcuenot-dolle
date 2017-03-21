@@ -10,7 +10,7 @@ getAllNodes() :  la méthode récupère les clés grâce à la méthode _keySet(
 dans une liste.
 
 ```java
-    public Set<Node> getAllNodes(){
+    	public Set<Node> getAllNodes(){
 		return adjacence.keySet();
 	}
 ```
@@ -18,7 +18,7 @@ dans une liste.
 getNbNodes() : la méthode retourne la taille de la liste générée par getAllNodes().
 
 ```java
-    public int getNbNodes(){
+    	public int getNbNodes(){
 		return getAllNodes().size();
 	}
  ```
@@ -27,7 +27,7 @@ getAdjNodes(Node _n) : la méthode récupère tous les arcs du noeud renseigné 
 que  _n est bien la source et stocke la destination dans une liste _adjNodes_ qui est retournée à la fin. 
 
 ```java
-    public List<Node> getAdjNodes(Node _n){
+    	public List<Node> getAdjNodes(Node _n){
 		List<Arc> adjArcs = adjacence.get(_n);
 		List<Node> adjNodes = new ArrayList<Node>();
 		for (Arc arc : adjArcs)
@@ -42,7 +42,7 @@ que  _n est bien la source et stocke la destination dans une liste _adjNodes_ qu
 toString() : la méthodfe récupère les différentes données grâce aux différentes méthodes codées si dessus, puis les affiche. 
 
 ```java
-    public String toString() {
+    	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		stringBuilder.append("Graph\n");
@@ -58,6 +58,7 @@ toString() : la méthodfe récupère les différentes données grâce aux diffé
 			stringBuilder.append("\n");
 		}
 		return stringBuilder.toString();
+	}
  ```
 		
 ## Question 2
