@@ -3,9 +3,7 @@ package Utils;
 import graph.IGraph;
 import graph.Node;
 
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -13,16 +11,17 @@ import java.util.stream.Collectors;
  */
 public class DFSIterator extends GraphIterator {
 
+
     public DFSIterator(IGraph graph, Node node) {
-        this.graph = graph;
-        this.node = node;
-        file.add(node);
-        marked.add(node);
+        super(graph, node);
     }
 
     @Override
     public Node getNextNode() {
-        return file.isEmpty() ? null : file.get(file.size()-1);
+        if(list.isEmpty())
+            throw new NoSuchElementException();
+        else
+            return list.get(list.size()-1);
     }
 
 

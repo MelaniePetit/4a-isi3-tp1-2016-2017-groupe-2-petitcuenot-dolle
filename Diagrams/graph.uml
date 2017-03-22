@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>graph</OriginalElement>
+  <nodes>
+    <node x="23.5" y="158.0">graph.Graph</node>
+    <node x="131.0" y="79.0">graph.IUndirectedGraph</node>
+    <node x="0.0" y="79.0">graph.IDirectedGraph</node>
+    <node x="84.94444444444443" y="0.0">graph.IGraph</node>
+    <node x="23.541666666666657" y="237.0">graph.UndirectedGraph</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="graph.Graph" target="graph.IDirectedGraph">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="graph.IDirectedGraph" target="graph.IGraph">
+      <point x="0.0" y="-14.5" />
+      <point x="55.5" y="54.0" />
+      <point x="101.69444444444443" y="54.0" />
+      <point x="-16.75" y="14.5" />
+    </edge>
+    <edge source="graph.UndirectedGraph" target="graph.Graph">
+      <point x="0.0" y="-14.5" />
+      <point x="84.54166666666666" y="212.0" />
+      <point x="71.5" y="212.0" />
+      <point x="16.0" y="14.5" />
+    </edge>
+    <edge source="graph.IUndirectedGraph" target="graph.IGraph">
+      <point x="0.0" y="-14.5" />
+      <point x="193.5" y="54.0" />
+      <point x="135.19444444444446" y="54.0" />
+      <point x="16.750000000000014" y="14.5" />
+    </edge>
+    <edge source="graph.UndirectedGraph" target="graph.IUndirectedGraph">
+      <point x="40.66666666666666" y="-14.5" />
+      <point x="125.20833333333331" y="212.0" />
+      <point x="193.5" y="212.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="128.0" y="133.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

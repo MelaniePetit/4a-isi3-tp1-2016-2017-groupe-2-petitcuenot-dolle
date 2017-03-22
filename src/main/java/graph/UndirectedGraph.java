@@ -44,10 +44,8 @@ public class UndirectedGraph implements IUndirectedGraph{
     }
 
     public void addEdge(Node _node1, Node _node2) {
-        Arc arcA = new Arc(_node1,_node2,null);
-        Arc arcR = new Arc(_node2,_node1,null);
-        graph.addArc(arcA);
-        graph.addArc(arcR);
+        graph.addArc(new Arc(_node1,_node2,null));
+        graph.addArc(new Arc(_node2,_node1,null));
     }
 
     public boolean hasEdge(Node _node1, Node _node2) {

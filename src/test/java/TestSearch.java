@@ -35,6 +35,8 @@ public class TestSearch {
 		dg.addNode(na);dg.addNode(nb);dg.addNode(nc);dg.addNode(nd);dg.addNode(ne);dg.addNode(nf);dg.addNode(ng);
 		dg.addArc(aa);dg.addArc(ab);dg.addArc(ac);dg.addArc(ad);dg.addArc(ae);dg.addArc(af);dg.addArc(ag);
 
+		System.out.println(dg);
+
 		Iterator<Node> iterdgBGS= dg.creerBFSIterator(na);
 		System.out.println("Wiki bfs:");
 		while (iterdgBGS.hasNext())

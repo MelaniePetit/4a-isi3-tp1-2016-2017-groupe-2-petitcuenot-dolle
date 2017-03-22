@@ -10,13 +10,19 @@ public abstract class GraphIterator implements Iterator<Node> {
 
     IGraph graph;
     Node node;
-    List<Node> file = new LinkedList<>();
-    Stack<Node> stack = new Stack<>();
+    List<Node> list = new LinkedList<>();
     List<Node> marked = new ArrayList<>();
+
+    public GraphIterator(IGraph graph, Node node) {
+        this.graph = graph;
+        this.node = node;
+        list.add(node);
+        marked.add(node);
+    }
 
     @Override
     public boolean hasNext() {
-        return !file.isEmpty();
+        return !list.isEmpty();
     }
 
     @Override
@@ -25,16 +31,17 @@ public abstract class GraphIterator implements Iterator<Node> {
             remove();
             if (!marked.contains(node))
                 marked.add(node);
-            List<Node> adjs = graph.getAdjNodes(node).stream().filter(node -> !marked.contains(node)).collect(Collectors.toList());
 
-            for (Node node : adjs)
-            {
-                if (!file.contains(node))
-                    file.add(node);
-            }
+            list.addAll(graph.getAdjNodes(node)
+                    .stream()
+                    .filter(node -> !marked.contains(node))
+                    .map(node -> {marked.add(node); return node;})
+                    .collect(Collectors.toList()));
 
             Node previousNode = node;
-            node = getNextNode();
+
+            if (!list.isEmpty())
+                node = getNextNode();
 
             return previousNode;
         }
@@ -45,7 +52,7 @@ public abstract class GraphIterator implements Iterator<Node> {
 
     @Override
     public void remove() {
-        file.remove(node);
+        list.remove(node);
     }
 
     public abstract Node getNextNode();
