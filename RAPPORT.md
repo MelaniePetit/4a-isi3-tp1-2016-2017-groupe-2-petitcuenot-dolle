@@ -10,7 +10,7 @@ getAllNodes() :  la méthode récupère les clés grâce à la méthode _keySet(
 dans une liste.
 
 ```java
-    	public Set<Node> getAllNodes(){
+        public Set<Node> getAllNodes(){
 		return adjacence.keySet();
 	}
 ```
@@ -80,7 +80,7 @@ puis son inverse (n2 => n1).
 
 _Diagramme :_
 
-![DesignPatter2](images/designPattern2.png)
+![DesignPatter2](images/UndirectedGraph.png)
 
 
 ## Question 3
